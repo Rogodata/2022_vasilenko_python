@@ -38,8 +38,6 @@ pygame.draw.line(screen, (0, 0, 0), (700, 700), (750, 700), 3)
 pygame.draw.line(screen, (0, 0, 0), (820, 550), (820, 700), 3)
 pygame.draw.line(screen, (0, 0, 0), (820, 700), (870, 700), 3)
 
-
-
 pygame.display.update()
 clock = pygame.time.Clock()
 finished = False
