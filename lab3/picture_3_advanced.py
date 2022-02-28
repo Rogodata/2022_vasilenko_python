@@ -10,9 +10,10 @@ def make_girl(surface, x_pos, y_pos, width, height, mirror=False):
     '''
         Рисует левую девочку.
         surface - объект pygame.Surface
-        x_pos, y_pos - координаты ладони левой руки
+        x_pos, y_pos - координаты ладони левой рукиооооооооооооооооооооооооооооооооооооооооооооооооооооооооо
         width, height - ширина и высота изображения
         mirror - отзеркаливание изображения относительно вертикальной оси тела
+        Это для левой девочки
     '''
     surface_girl_1 = pygame.Surface((1200, 800), pygame.SRCALPHA)
     surface_girl_0 = pygame.Surface((350, 550), pygame.SRCALPHA)
@@ -33,6 +34,14 @@ def make_girl(surface, x_pos, y_pos, width, height, mirror=False):
 
 
 def make_dude(surface, x_pos, y_pos, width, height, mirror=False):
+    '''
+            Рисует мальчика.
+            surface - объект pygame.Surface
+            x_pos, y_pos щшщшшшпнеаакуыуувкку
+            width, height - ширина и высота изображения
+            mirror - отзеркаливание изображения относительно вертикальной оси тела
+            Это для правого мальчика
+        '''
     surface_dude_1 = pygame.Surface((1200, 800), pygame.SRCALPHA)
     surface_dude_0 = pygame.Surface((400, 580), pygame.SRCALPHA)
     pygame.draw.ellipse(surface_dude_1, (167, 141, 179), (300, 250, 150, 300))
@@ -50,18 +59,34 @@ def make_dude(surface, x_pos, y_pos, width, height, mirror=False):
     surface.blit(surface_dude_0, dest=(x_pos, y_pos))
 
 
-def make_icecream(surface):
-    pygame.draw.polygon(surface, (235, 152, 59), ((225, 425), (100, 400), (170, 330)))
-    pygame.draw.circle(surface, (112, 87, 59), (110, 370), 30)
-    pygame.draw.circle(surface, (255, 61, 87), (140, 340), 25)
-    pygame.draw.circle(surface, (212, 252, 255), (110, 335), 20)
+def make_icecream(surface, x_pos, y_pos, width, height, angle=0, mirror=False):
+    y_pos = y_pos - height
+    x_pos = x_pos - width
+    surface_icecream_1 = pygame.Surface((1200, 800), pygame.SRCALPHA)
+    surface_icecream_0 = pygame.Surface((90, 105), pygame.SRCALPHA)
+    pygame.draw.polygon(surface_icecream_1, (235, 152, 59), ((225, 425), (100, 400), (170, 330)))
+    pygame.draw.circle(surface_icecream_1, (112, 87, 59), (110, 370), 30)
+    pygame.draw.circle(surface_icecream_1, (255, 61, 87), (140, 340), 25)
+    pygame.draw.circle(surface_icecream_1, (212, 252, 255), (110, 335), 20)
+    surface_icecream_0.blit(surface_icecream_1, area=[(80, 315), (170, 425)], dest=(0, 0))
+    surface_icecream_0 = pygame.transform.rotate(surface_icecream_0, angle)
+    surface_icecream_0 = pygame.transform.scale(surface_icecream_0, (width, height))
+    if mirror:
+        surface_icecream_0 = pygame.transform.flip(surface_icecream_0, True, False)
+    surface.blit(surface_icecream_0, dest=(x_pos, y_pos))
 
 
-def make_balloon(surface):
-    pygame.draw.polygon(surface, (255, 5, 55), ((920, 100), (1050, 140), (950, 250)))
-    pygame.draw.circle(surface, (255, 5, 55), (960, 100), 40)
-    pygame.draw.circle(surface, (255, 5, 55), (1025, 110), 40)
-    pygame.draw.line(surface, (0, 0, 0), (950, 250), (940, 450), 3)
+def make_balloon(surface, x_pos, y_pos, width, height, mirror=False):
+    surface_balloon_1 = pygame.Surface((1200, 800), pygame.SRCALPHA)
+    surface_balloon_0 = pygame.Surface((145, 190), pygame.SRCALPHA)
+    pygame.draw.polygon(surface_balloon_1, (255, 5, 55), ((920, 100), (1050, 140), (950, 250)))
+    pygame.draw.circle(surface_balloon_1, (255, 5, 55), (960, 100), 40)
+    pygame.draw.circle(surface_balloon_1, (255, 5, 55), (1025, 110), 40)
+    surface_balloon_0.blit(surface_balloon_1, area=[(920, 60), (1065, 250)], dest=(0, 0))
+    surface_balloon_0 = pygame.transform.scale(surface_balloon_0, (width, height))
+    if mirror:
+        surface_balloon_0 = pygame.transform.flip(surface_balloon_0, True, False)
+    surface.blit(surface_balloon_0, dest=(x_pos, y_pos))
 
 
 # background
@@ -75,7 +100,7 @@ make_girl(surface_girl_1)
 surface_girl_1 = pygame.transform.scale(surface_girl_1, (750, 500))
 screen.blit(surface_girl_1, (0, 150))'''
 
-make_girl(screen, 370, 250, 220, 340,)
+make_girl(screen, 370, 250, 220, 340, )
 make_girl(screen, 590, 250, 220, 340, mirror=True)
 
 '''
@@ -106,19 +131,13 @@ surface_dude_2 = pygame.transform.flip(surface_dude_2, True, False)
 screen.blit(surface_dude_2, (434, 150))
 '''
 
+'''
 # make right ice cream
 surface_icecream_1 = pygame.Surface((1200, 800), pygame.SRCALPHA)
 make_icecream(surface_icecream_1)
 surface_icecream_1 = pygame.transform.scale(surface_icecream_1, (750, 500))
 surface_icecream_1 = pygame.transform.rotate(surface_icecream_1, 270)
 screen.blit(surface_icecream_1, (817, 268))
-
-# make left balloon
-surface_balloon = pygame.Surface((1200, 800), pygame.SRCALPHA)
-make_balloon(surface_balloon)
-surface_balloon = pygame.transform.scale(surface_balloon, (750, 500))
-surface_balloon = pygame.transform.flip(surface_balloon, True, False)
-screen.blit(surface_balloon, (-30, 130))
 
 # make center ice cream
 surface_icecream_2 = pygame.Surface((1200, 800), pygame.SRCALPHA)
@@ -127,6 +146,23 @@ surface_icecream_2 = pygame.transform.scale(surface_icecream_2, (1200, 800))
 surface_icecream_2 = pygame.transform.rotate(surface_icecream_2, 300)
 screen.blit(surface_icecream_2, (170, -200))
 pygame.draw.line(screen, (0, 0, 0), (610, 200), (590, 345), 3)
+'''
+
+make_icecream(screen, 1110, 410, 80, 180, angle=290)
+make_icecream(screen, 650, 210, 80, 180, angle=320)
+pygame.draw.line(screen, (0, 0, 0), (610, 200), (590, 345), 3)
+
+'''
+# make left balloon
+surface_balloon = pygame.Surface((1200, 800), pygame.SRCALPHA)
+make_balloon(surface_balloon)
+surface_balloon = pygame.transform.scale(surface_balloon, (750, 500))
+surface_balloon = pygame.transform.flip(surface_balloon, True, False)
+screen.blit(surface_balloon, (-30, 130))
+'''
+
+make_balloon(screen, 40, 130, 80, 120, mirror=True)
+pygame.draw.line(screen, (0, 0, 0), (130, 400), (100, 250), 3)
 
 pygame.display.update()
 clock = pygame.time.Clock()
