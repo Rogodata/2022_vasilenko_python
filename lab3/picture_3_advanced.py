@@ -9,10 +9,12 @@ screen = pygame.display.set_mode((1200, 800))
 def make_girl(surface, x_pos, y_pos, width, height, mirror=False):
     '''
     Рисует девочку
-    surface - объект pygame.Surface
-    x_pos, y_pos - координаты ладони несогнутой руки(она слева относительно нас)
-    width, height - ширина и высота изображения
-    mirror - отзеркаливание изображения относительно вертикальной оси тела
+    :param surface - объект pygame.Surface
+    :param x_pos координата x ладони несогнутой руки(она слева относительно нас)
+    :param y_pos - координата y ладони несогнутой руки(она слева относительно нас)
+    :param width - ширина изображения
+    :param height - высота изображения
+    :param mirror - отзеркаливание изображения относительно вертикальной оси тела
     Это для правой девочки
     '''
     y_pos = y_pos - height * 260 // 550
@@ -37,11 +39,13 @@ def make_girl(surface, x_pos, y_pos, width, height, mirror=False):
 def make_dude(surface, x_pos, y_pos, width, height, mirror=False):
     '''
     Рисует мальчика.
-    surface - объект pygame.Surface
-    x_pos, y_pos координаты левой (относительно смотрящего) руки левого мальчика
-    width, height - ширина и высота изображения
-    mirror - отзеркаливание изображения относительно вертикальной оси тела
-    Это для правого мальчика
+    :param surface - объект pygame.Surface
+    :param x_pos координатa x левой (относительно смотрящего) руки левого мальчика
+    :param y_pos координатa y левой (относительно смотрящего) руки левого мальчика
+    :param width - ширина изображения
+    :param height - высота изображения
+    :param mirror - отзеркаливание изображения относительно вертикальной оси тела
+    :param Это для правого мальчика
     '''
     y_pos = y_pos - height // 2
     surface_dude_1 = pygame.Surface((1200, 800), pygame.SRCALPHA)
@@ -64,11 +68,13 @@ def make_dude(surface, x_pos, y_pos, width, height, mirror=False):
 def make_icecream(surface, x_pos, y_pos, width, height, angle=0, mirror=False):
     '''
     Рисует мороженое.
-    surface - объект pygame.Surface
-    x_pos, y_pos координаты правого нижнего угла прямоугольника, стороны которого параллельны осям координат, в который вписано мороженое
-    width, height - ширина и высота изображения
-    mirror - отзеркаливание изображения относительно вертикальной оси симметрии прямоугольника
-    angle - поворот изображения относительно x_pos y_pos (правого верхнего угла изображения)
+    :param surface - объект pygame.Surface
+    :param x_pos координата x правого нижнего угла прямоугольника, стороны которого параллельны осям координат, в который вписано мороженое
+    :param y_pos координата y правого нижнего угла прямоугольника, стороны которого параллельны осям координат, в который вписано мороженое
+    :param width - ширина изображения
+    :param height - высота изображения
+    :param mirror - отзеркаливание изображения относительно вертикальной оси симметрии прямоугольника
+    :param angle - поворот изображения относительно x_pos y_pos (правого верхнего угла изображения)
     '''
     y_pos = y_pos - height
     x_pos = x_pos - width
@@ -89,10 +95,12 @@ def make_icecream(surface, x_pos, y_pos, width, height, angle=0, mirror=False):
 def make_balloon(surface, x_pos, y_pos, width, height, mirror=False):
     '''
     Рисует шарик.
-    surface - объект pygame.Surface
-    x_pos, y_pos координаты левого верхнего угла прмоугольника, стороны которого параллельны осям координат, в который вписан шарик
-    width, height - ширина и высота изображения
-    mirror - отзеркаливание изображения относительно вертикальной оси симметрии прямоугольника
+    :param surface - объект pygame.Surface
+    :param x_pos координата x левого верхнего угла прмоугольника, стороны которого параллельны осям координат, в который вписан шарик
+    :param y_pos координата y левого верхнего угла прмоугольника, стороны которого параллельны осям координат, в который вписан шарик
+    :param width - ширина изображения
+    :param height - высота изображения
+    :param mirror - отзеркаливание изображения относительно вертикальной оси симметрии прямоугольника
     '''
     surface_balloon_1 = pygame.Surface((1200, 800), pygame.SRCALPHA)
     surface_balloon_0 = pygame.Surface((145, 190), pygame.SRCALPHA)
