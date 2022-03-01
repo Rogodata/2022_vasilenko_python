@@ -13,7 +13,7 @@ def make_girl(surface, x_pos, y_pos, width, height, mirror=False):
     x_pos, y_pos - координаты ладони несогнутой руки(она слева относительно нас)
     width, height - ширина и высота изображения
     mirror - отзеркаливание изображения относительно вертикальной оси тела
-    Это для левой девочки
+    Это для правой девочки
     '''
     y_pos = y_pos - height * 260 // 550
     surface_girl_1 = pygame.Surface((1200, 800), pygame.SRCALPHA)
@@ -41,7 +41,7 @@ def make_dude(surface, x_pos, y_pos, width, height, mirror=False):
     x_pos, y_pos координаты левой (относительно смотрящего) руки левого мальчика
     width, height - ширина и высота изображения
     mirror - отзеркаливание изображения относительно вертикальной оси тела
-    Это для левого мальчика
+    Это для правого мальчика
     '''
     y_pos = y_pos - height // 2
     surface_dude_1 = pygame.Surface((1200, 800), pygame.SRCALPHA)
